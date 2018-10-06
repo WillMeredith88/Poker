@@ -3,7 +3,7 @@ package application;
 
 public class Hand {
 	/**
-	 * Instance Variable(s)
+	 * Instance Variable(s)/
 	 */
 	private final int MAX_SIZE = 2;
 	private Card[] hand;
