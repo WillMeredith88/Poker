@@ -1,9 +1,11 @@
-package application;
+package calculators;
+
+import datamodels.Board;
+import datamodels.Card;
+import datamodels.Hand;
 
 public class GameCalc {
-	/**
-	 * Instance Variable(s)
-	 */
+	/*
 	private final int HAND_SIZE = 2;
 	private final int BOARD_SIZE = 5;
 	private final int TOTAL_SIZE = 7;
@@ -19,9 +21,7 @@ public class GameCalc {
 	private boolean isStraight;
 	private boolean isFlush;
 	
-	/**
-	 * Constructor(s)
-	 */
+	
 	public GameCalc(){
 		this(null, null);
 	}
@@ -36,9 +36,7 @@ public class GameCalc {
 		
 	}
 	
-	/**
-	 * Instance Method(s)
-	 */
+	
 	public void setHand(Hand hand){
 		if(hand == null){
 			return;
@@ -105,9 +103,6 @@ public class GameCalc {
 	
 	
 	
-	/**
-	 * Calc Methods
-	 */
 	
 	public Card getHighCard(){
 		System.out.println("Getting the high card...");
@@ -362,4 +357,5 @@ public class GameCalc {
 	public String toString() {
 		return "GameCalc [ " + this.h.toString() + " - " + this.b.toString() + " ]";
 	}	
+	*/
 }
