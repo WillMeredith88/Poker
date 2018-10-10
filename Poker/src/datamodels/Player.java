@@ -16,7 +16,7 @@ public class Player {
 	}
 	
 	public Player(String name) {
-	this(name, null);	
+		this(name, null);	
 	}
 	
 	public Player(String name, Hand hand) {

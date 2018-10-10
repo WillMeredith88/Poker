@@ -25,5 +25,31 @@ public class Board {
 		this.cards = cards;
 	}
 	
+	public boolean addCard(Card card) {
+		if(this.cards.size() < this.boardSize) {
+			this.cards.add(card);
+			return true;
+		}
+		return false;
+	}
 	
+	public void newBoard() {
+		this.cards = new ArrayList<Card>();
+	}
+	
+	public boolean isFull() {
+		return this.cards.size() == this.boardSize;
+	}
+	
+	public boolean isEmpty() {
+		return this.cards == null || this.cards.size() == 0;
+	}
+	
+	public boolean contains(Card card) {
+		return this.cards.contains(card);
+	}
+	
+	public String toString() {
+		return "Board Size: " + this.boardSize + " Board: " + this.cards;
+	}
 }

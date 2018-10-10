@@ -2,9 +2,14 @@ package calculators;
 
 import datamodels.Board;
 import datamodels.Card;
+import datamodels.Deck;
 import datamodels.Hand;
 
 public class GameCalc {
+	Deck deck = new Deck();
+	
+	
+	
 	/*
 	private final int HAND_SIZE = 2;
 	private final int BOARD_SIZE = 5;

@@ -103,6 +103,14 @@ public class Hand {
 	}
 	
 	/**
+	 * Returns a boolean value specyfing if this hand is empty.
+	 * @return A boolean value specyfing if this hand is empty
+	 */
+	public boolean isEmpty() {
+		return this.cards.size() == 0 || this.cards == null;
+	}
+	
+	/**
 	 * Returns the size of this hand.
 	 * @return The size of this hand
 	 */

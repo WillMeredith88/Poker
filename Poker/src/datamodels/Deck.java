@@ -21,12 +21,9 @@ public class Deck {
 	}
 	
 	public void newDeck() {
-		Card card;
-		System.out.println(validSuits.length + " " + validValues.length);
 		for(int i = 0; i < validSuits.length; i++) {
 			for(int j = 0; j < validValues.length; j++) {
-				card = new Card(validSuits[i], validValues[j]);
-				this.cards.add(card);
+				this.cards.add(new Card(validSuits[i], validValues[j]));
 			}
 		}
 	}
