@@ -1,12 +1,94 @@
 package calculators;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+
 import datamodels.Board;
 import datamodels.Card;
 import datamodels.Deck;
 import datamodels.Hand;
+import datamodels.Player;
 
 public class GameCalc {
-	Deck deck = new Deck();
+	
+	
+	
+	
+	/**
+	 * Flush
+	 * @param hand
+	 * @param board
+	 * @return int value corresponging to the high card of the flush.
+	 * Zero if no flush is present
+	 */
+	public static int isFlush(Hand hand, Board board){
+		int prev;
+		//Spades 0, Hearts 1, Clubs 2, diamonds 3, 
+		int suits[] = {0,0,0,0};
+		int highCard[] = {0,0,0,0};
+		Card current;
+		
+		ArrayList<Card> cards = new ArrayList<Card>();
+		cards.addAll(hand.getCards());
+		cards.addAll(board.getBoardCards());
+		
+		if(cards.size() != 7){
+			System.out.println("Error: incorrect number of cards: isFlush()");
+			return 0;
+		}
+		
+		for(int i=0; i < cards.size(); i++){
+			current = cards.get(i);
+			
+			if(cards.get(i).getSuit() == 's'){
+				
+				if(current.getValue() > highCard[i]){
+					highCard[0]=current.getValue();
+				}
+				
+				suits[0]++;
+			}
+			else if(cards.get(i).getSuit() == 'h'){
+				
+				if(current.getValue() > highCard[i]){
+					highCard[0]=current.getValue();
+				}
+				
+				suits[1]++;
+			}
+			else if(cards.get(i).getSuit() == 'c'){
+				
+				if(current.getValue() > highCard[i]){
+					highCard[0]=current.getValue();
+				}
+				
+				suits[2]++;
+			}
+			else if(cards.get(i).getSuit() == 'd')
+				
+				if(current.getValue() > highCard[i]){
+					highCard[0]=current.getValue();
+				}
+				
+				suits[3]++;
+		}
+		
+		//if flush return the high card
+		for(int i =0 ; i < 4; i++){
+			if(suits[i] >= 5){
+					return highCard[i];
+			}
+		}
+		
+		
+		return 0;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -21,7 +103,7 @@ public class GameCalc {
 	private Board b;
 	private Card[] hand;
 	private Card[] board;
-	private Card[] total;
+	pr;
 	private int[] arrSF; //straight flush array
 	private boolean isStraight;
 	private boolean isFlush;
@@ -363,4 +445,9 @@ public class GameCalc {
 		return "GameCalc [ " + this.h.toString() + " - " + this.b.toString() + " ]";
 	}	
 	*/
+	
+	
+	
+	
+	
 }

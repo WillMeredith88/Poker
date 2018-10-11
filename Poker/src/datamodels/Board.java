@@ -10,7 +10,9 @@ import java.util.ArrayList;
  */
 public class Board {
 	private int boardSize;
-	private ArrayList<Card> cards;
+	private ArrayList<Card> deck;
+	private ArrayList<Card> boardCards;
+	
 	
 	public Board() {//default board size is 5
 		this(5);
@@ -22,34 +24,12 @@ public class Board {
 	
 	public Board(int boardSize, ArrayList<Card> cards) {
 		this.boardSize = boardSize;
-		this.cards = cards;
+		this.boardCards = cards;
 	}
 	
-	public boolean addCard(Card card) {
-		if(this.cards.size() < this.boardSize) {
-			this.cards.add(card);
-			return true;
-		}
-		return false;
+	public ArrayList<Card> getBoardCards(){
+		return this.boardCards;
 	}
 	
-	public void newBoard() {
-		this.cards = new ArrayList<Card>();
-	}
 	
-	public boolean isFull() {
-		return this.cards.size() == this.boardSize;
-	}
-	
-	public boolean isEmpty() {
-		return this.cards == null || this.cards.size() == 0;
-	}
-	
-	public boolean contains(Card card) {
-		return this.cards.contains(card);
-	}
-	
-	public String toString() {
-		return "Board Size: " + this.boardSize + " Board: " + this.cards;
-	}
 }

@@ -16,7 +16,7 @@ public class Player {
 	}
 	
 	public Player(String name) {
-		this(name, null);	
+	this(name, null);	
 	}
 	
 	public Player(String name, Hand hand) {
@@ -47,6 +47,7 @@ public class Player {
 	}
 	
 	public boolean bet(double betSize) {
+		
 		if(betSize <= this.stack && betSize >= 0) {
 			this.stack -= betSize;
 		}
@@ -62,4 +63,7 @@ public class Player {
 		return this.stack;
 	}
 	
+	public void getHand(){
+		
+	}
 }
