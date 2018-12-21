@@ -2,7 +2,9 @@ package calculators;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import datamodels.Board;
 import datamodels.Card;
@@ -86,6 +88,43 @@ public class GameCalc {
 	}
 	
 	
+	public static int isStraight(Hand hand, Board board){
+		
+		int count=0;
+		int highcard=0, lowcard=0;
+		int val_last=0, val_current;
+		
+		ArrayList<Card> board_and_hand = new ArrayList<Card>();
+		board_and_hand.addAll(hand.getCards());
+		board_and_hand.addAll(board.getBoardCards());
+		Collections.sort(board_and_hand);
+		Iterator it = board_and_hand.iterator();
+		
+		while(it.hasNext()){
+			
+			if(count == 5){
+				return highcard;
+			}
+			
+			Card temp = (Card) it.next();
+			highcard = temp.getValue();
+			val_current=temp.getValue();
+			
+			if(lowcard == 0 || (val_current != (val_last++))){
+				lowcard = temp.getValue();
+				count=0;
+			}else{
+				count++;
+			}
+			
+			val_last=temp.getValue();
+			
+			
+		}
+		
+		return -1;
+		
+	}
 	
 	
 	
