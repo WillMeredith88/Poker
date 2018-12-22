@@ -87,7 +87,13 @@ public class GameCalc {
 		return 0;
 	}
 	
-	
+	/**
+	 * @author William Merdith
+	 * Method determines if a player has a straight
+	 * @param hand
+	 * @param board
+	 * @return
+	 */
 	public static int isStraight(Hand hand, Board board){
 		
 		int count=0;
@@ -113,10 +119,9 @@ public class GameCalc {
 			if(lowcard == 0 || (val_current != (val_last++))){
 				lowcard = temp.getValue();
 				count=0;
-			}else{
-				count++;
 			}
 			
+			count++;
 			val_last=temp.getValue();
 			
 			
@@ -126,8 +131,44 @@ public class GameCalc {
 		
 	}
 	
-	
-	
+	/**
+	 * @Author: William Meredith
+	 * @param board
+	 * @param hand
+	 * @return int 1(True) -1(False)
+	 * Method uses isStraight() as a subroutine
+	 */
+	public static int isStraightFlush(Board board, Hand hand){
+		
+		int straight_result = isStraight(hand, board);
+		int highCardIndex, count=0;
+		char high_card_suit;
+		
+		if(straight_result == -1)//result was not a straight
+			return -1;
+		
+		ArrayList<Card> straight_list = new ArrayList<Card>();
+		straight_list.addAll(board.getBoardCards());
+		straight_list.addAll(hand.getCards());
+		Collections.sort(straight_list);
+		highCardIndex = straight_list.indexOf(straight_result);
+		high_card_suit = straight_list.get(highCardIndex).getSuit();
+		straight_list = (ArrayList<Card>) straight_list.subList(highCardIndex-5, highCardIndex);
+		Iterator it = straight_list.iterator();
+		
+		while(it.hasNext()){
+			if(count == 5)
+					return 1;
+			Card temp = (Card) it.next();
+			
+			if(temp.getSuit() == high_card_suit)//current card is correct suit
+				count++;
+			else
+				return -1;//card was not correct suit, cannot be straight-flush
+		}
+		
+		return -1;
+	}
 	
 	
 	
