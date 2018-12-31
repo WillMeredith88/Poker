@@ -18,6 +18,7 @@ public class GameCalc {
 	
 	
 	/**
+	 * @author William Meredith
 	 * Flush
 	 * @param hand
 	 * @param board
@@ -168,6 +169,49 @@ public class GameCalc {
 		}
 		
 		return -1;
+	}
+	
+	
+	/**
+	 * @author William Meredith
+	 * @param board
+	 * @param hand
+	 * @return (Int) an integer value where each digit indicated as pair of that
+	 * value was found. 
+	 */
+	public static ArrayList<Card> isPair(Board board, Hand hand){
+			
+			//create and sort arraylist of all cards being examined
+			ArrayList<Card> all_cards = new ArrayList<Card>();
+			all_cards.addAll(board.getBoardCards());
+			all_cards.addAll(hand.getCards());
+			Collections.sort(all_cards);
+			
+			//create iterator and local variables to keep track of cards
+			//being looked at
+			Iterator<Card> card_iterator = all_cards.iterator();
+			ArrayList<Card> pairValue = new ArrayList<Card>();
+			ArrayList<Card> viewedCards = new ArrayList<Card>();
+			Card current_card= all_cards.get(0);
+			String final_result="";
+			
+			
+			while(card_iterator.hasNext()){
+				current_card = card_iterator.next();
+					if(viewedCards.contains(current_card)){
+						pairValue.add(current_card);
+					}
+			}
+		
+			
+			if(pairValue.isEmpty()){
+				return null;
+			}
+		
+			
+			return pairValue;
+			
+			
 	}
 	
 	
